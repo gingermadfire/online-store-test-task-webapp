@@ -1,0 +1,14 @@
+.goods-table {
+  margin-top: 100px;
+  max-width: 500px;
+}
+
+.goods-table-container {
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.delete-goods-table {
+  max-height: min-content ;
+}

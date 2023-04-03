@@ -1,0 +1,20 @@
+<div class="container d-flex justify-content-center">
+  <table class="table text-center table border-primary position-relative goods-table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let goods of allGoods">
+      <th>{{goods.name}}</th>
+      <th>{{goods.price}}</th>
+      <span class="delete-goods-table">
+        <button type="button" class="delete-goods-table btn btn-outline-primary position-relative" title="delete goods"
+              (click)="deleteGoods(goods.id)">X</button>
+      </span>
+    </tr>
+    </tbody>
+  </table>
+</div>
