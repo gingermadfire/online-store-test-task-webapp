@@ -1,0 +1,23 @@
+.goods-table {
+  margin-top: 100px;
+  max-width: 800px;
+}
+
+.goods-table-container {
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.goods-table {
+  max-height: min-content;
+}
+
+.goods-adding-button {
+  margin-right: 30px;
+}
+
+.table-header-font {
+  font-size: large;
+  color: #5c5c5c;
+}
