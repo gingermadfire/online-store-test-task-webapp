@@ -46,7 +46,6 @@ export class GoodsComponent implements OnInit {
   }
 
   edit(id: number) {
-    console.log("goods component id " + id);
     const ngbModalRef = this.ngbModal.open(GoodsEditModalComponent);
     ngbModalRef.componentInstance.setId(id);
   }

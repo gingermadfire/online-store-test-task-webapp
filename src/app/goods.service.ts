@@ -46,7 +46,11 @@ export class GoodsService {
   updateGoods(goods: Goods) {
     const url = `${this.goodsUrl}/${goods.id}`;
     this.httpClient.put(url, goods, this.httpOption)
-      .subscribe(data => console.log(data));
+      .subscribe(() => this.reloadCurrentPage());
+  }
+
+  reloadCurrentPage() {
+    window.location.reload();
   }
 
 }
