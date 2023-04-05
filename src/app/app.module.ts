@@ -2,18 +2,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { GoodsComponent } from './goods/goods.component';
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from "@angular/common/http";
-import {RouterLink, RouterOutlet} from "@angular/router";
-import {CommonModule} from '@angular/common';
+import { HttpClientModule } from "@angular/common/http";
+import { RouterLink, RouterOutlet } from "@angular/router";
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import {GoodsAddingModalComponent} from "./goods-adding-modal/goods-adding-modal.component";
+import { GoodsEditModalComponent } from './goods-edit-modal/goods-edit-modal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GoodsComponent
+    GoodsComponent,
+    GoodsAddingModalComponent,
+    GoodsEditModalComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +27,13 @@ import {CommonModule} from '@angular/common';
     AppRoutingModule,
     RouterOutlet,
     RouterLink,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    GoodsEditModalComponent,
+    NgbActiveModal
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

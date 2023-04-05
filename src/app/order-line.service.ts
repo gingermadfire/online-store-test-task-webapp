@@ -21,30 +21,30 @@ export class OrderLineService {
     return this.http.get<OrderLine>(url)
       .pipe(
         tap(orderLine => console.log(orderLine))
-      )
+      );
   }
 
   getOrderLines(): Observable<OrderLine[]> {
     return this.http.get<OrderLine[]>(this.orderLineUrl)
       .pipe(
         tap(orderLines => console.log(orderLines))
-      )
+      );
   }
 
   setOrderLine(orderLine: OrderLine) {
     this.http.post(this.orderLineUrl, orderLine, this.httpOptions)
-      .subscribe(data => console.log(data))
+      .subscribe(data => console.log(data));
   }
 
   deleteOrderLine(id: number) {
-    const url = `${this.orderLineUrl}/${id}`
+    const url = `${this.orderLineUrl}/${id}`;
     this.http.delete(url)
-      .subscribe(data => console.log(data))
+      .subscribe(data => console.log(data));
   }
-  
+
   updateOrderLine(id: number, orderLine: OrderLine) {
-    const url = `${this.orderLineUrl}/${id}`
+    const url = `${this.orderLineUrl}/${id}`;
     this.http.put(url, orderLine, this.httpOptions)
-      .subscribe(data => console.log(data))
+      .subscribe(data => console.log(data));
   }
 }
