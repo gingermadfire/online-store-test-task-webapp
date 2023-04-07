@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
-import {OrderService} from "../order.service";
 import {OrderRequestDto} from "../order-request-dto";
+import {OrderLineService} from "../order-line.service";
 
 @Component({
   selector: 'app-goods-order-modal',
@@ -24,7 +24,7 @@ export class GoodsOrderModalComponent implements OnInit {
   constructor(
     public ngbActiveModal: NgbActiveModal,
     private formBuilder: FormBuilder,
-    private orderService: OrderService
+    private orderLineService: OrderLineService
   ) { }
 
   ngOnInit() {
@@ -53,7 +53,7 @@ export class GoodsOrderModalComponent implements OnInit {
       count: this.goodsOrderingForm.value.count
     } as OrderRequestDto;
 
-    this.orderService.setOrder(requestDto);
+    this.orderLineService.setOrderLine(requestDto);
 
   }
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable, tap} from "rxjs";
 import { OrderLine } from './order-line';
+import {OrderRequestDto} from "./order-request-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -31,8 +32,8 @@ export class OrderLineService {
       );
   }
 
-  setOrderLine(orderLine: OrderLine) {
-    this.http.post(this.orderLineUrl, orderLine, this.httpOptions)
+  setOrderLine(orderRequestDto: OrderRequestDto) {
+    this.http.post(this.orderLineUrl, orderRequestDto, this.httpOptions)
       .subscribe(data => console.log(data));
   }
 
