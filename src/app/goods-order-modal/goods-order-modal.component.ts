@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
-import {OrderRequestDto} from "../order-request-dto";
+import {OrderLineRequestDto} from "../order-line-request-dto";
 import {OrderLineService} from "../order-line.service";
+import {Goods} from "../goods";
 
 @Component({
   selector: 'app-goods-order-modal',
@@ -11,9 +12,7 @@ import {OrderLineService} from "../order-line.service";
 })
 export class GoodsOrderModalComponent implements OnInit {
 
-  private id: number;
-  name: string;
-  price: number;
+  goods: Goods;
 
   goodsOrderingForm = new FormGroup({
     count: new FormControl(),
@@ -35,10 +34,8 @@ export class GoodsOrderModalComponent implements OnInit {
     });
   }
 
-  setGoods(id: number, name: string, price: number) {
-    this.id = id;
-    this.name = name;
-    this.price = price;
+  setGoods(goods: Goods) {
+    this.goods = goods;
   }
 
   getSummaryPrice(price: number, count: number): number {
@@ -47,11 +44,11 @@ export class GoodsOrderModalComponent implements OnInit {
 
   orderGoods() {
     const requestDto = {
-      goodsId: this.id,
+      goodsId: this.goods.id,
       client: this.goodsOrderingForm.value.client,
       address: this.goodsOrderingForm.value.address,
       count: this.goodsOrderingForm.value.count
-    } as OrderRequestDto;
+    } as OrderLineRequestDto;
 
     this.orderLineService.setOrderLine(requestDto);
 

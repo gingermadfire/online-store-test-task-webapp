@@ -1,4 +1,4 @@
-export interface OrderRequestDto {
+export interface OrderLineRequestDto {
   goodsId: number;
   client: string;
   address: string;

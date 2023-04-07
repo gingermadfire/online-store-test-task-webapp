@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable, tap} from "rxjs";
 import { OrderLine } from './order-line';
-import {OrderRequestDto} from "./order-request-dto";
+import {OrderLineRequestDto} from "./order-line-request-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +32,8 @@ export class OrderLineService {
       );
   }
 
-  setOrderLine(orderRequestDto: OrderRequestDto) {
-    this.http.post(this.orderLineUrl, orderRequestDto, this.httpOptions)
-      .subscribe(data => console.log(data));
+  setOrderLine(orderRequestDto: OrderLineRequestDto): Observable<OrderLineRequestDto> {
+    return this.http.post<OrderLineRequestDto>(this.orderLineUrl, orderRequestDto, this.httpOptions);
   }
 
   deleteOrderLine(id: number) {
@@ -43,9 +42,13 @@ export class OrderLineService {
       .subscribe(data => console.log(data));
   }
 
-  updateOrderLine(id: number, orderLine: OrderLine) {
-    const url = `${this.orderLineUrl}/${id}`;
+  updateOrderLine(orderLine: OrderLine) {
+    const url = `${this.orderLineUrl}/${orderLine.id}`;
     this.http.put(url, orderLine, this.httpOptions)
-      .subscribe(data => console.log(data));
+      .subscribe(this.reloadCurrentPage);
+  }
+
+  reloadCurrentPage() {
+    window.location.reload();
   }
 }

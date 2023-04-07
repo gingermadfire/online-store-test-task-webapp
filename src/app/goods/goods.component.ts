@@ -46,13 +46,14 @@ export class GoodsComponent implements OnInit {
     this.ngbModal.open(GoodsAddingModalComponent);
   }
 
-  editOrder(id: number) {
+  editGoods(goods: Goods) {
     const ngbModalRef = this.ngbModal.open(GoodsEditModalComponent);
-    ngbModalRef.componentInstance.setId(id);
+    ngbModalRef.componentInstance.setGoods(goods);
   }
 
-  order(id: number, name: string, price: number) {
+  order(goods: Goods) {
     const ngbModalRef = this.ngbModal.open(GoodsOrderModalComponent);
-    ngbModalRef.componentInstance.setGoods(id, name, price);
+    ngbModalRef.componentInstance.setGoods(goods);
   }
+
 }

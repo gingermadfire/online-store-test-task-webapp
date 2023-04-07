@@ -8,10 +8,12 @@ import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {CommonModule} from '@angular/common';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {GoodsAddingModalComponent} from "./goods-adding-modal/goods-adding-modal.component";
 import {GoodsEditModalComponent} from './goods-edit-modal/goods-edit-modal.component';
+import {GoodsOrderModalComponent} from './goods-order-modal/goods-order-modal.component';
 import {OrdersComponent} from "./orders/orders.component";
+import { OrderLineEditModalComponent } from './order-edit-modal/order-line-edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {OrdersComponent} from "./orders/orders.component";
     GoodsComponent,
     GoodsAddingModalComponent,
     GoodsEditModalComponent,
-    OrdersComponent
+    OrdersComponent,
+    GoodsOrderModalComponent,
+    OrderLineEditModalComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,8 @@ import {OrdersComponent} from "./orders/orders.component";
     RouterOutlet,
     RouterLink,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     GoodsEditModalComponent,

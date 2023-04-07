@@ -1,18 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {OrderLineService} from "../order-line.service";
 import {OrderLine} from "../order-line";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {OrderLineEditModalComponent} from "../order-edit-modal/order-line-edit-modal.component";
 
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
-export class OrdersComponent implements OnInit{
+export class OrdersComponent implements OnInit {
 
   orderLines: OrderLine[] = [];
 
-  constructor(private orderLineService: OrderLineService) {
-  }
+  constructor(
+    private orderLineService: OrderLineService,
+    private ngbModal: NgbModal
+  ) {}
 
   ngOnInit() {
     this.getOrders();
@@ -23,11 +27,13 @@ export class OrdersComponent implements OnInit{
       .subscribe(orderLines => this.orderLines = orderLines);
   }
 
-  editOrder(id: number) {
-
+  editOrder(orderLine: OrderLine) {
+    const ngbModalRef = this.ngbModal.open(OrderLineEditModalComponent);
+    ngbModalRef.componentInstance.setOrderLine(orderLine);
   }
 
   deleteOrder(id: number) {
-
+    this.orderLines = this.orderLines.filter(g => g.id !== id);
+    this.orderLineService.deleteOrderLine(id);
   }
 }

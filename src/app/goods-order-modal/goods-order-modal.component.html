@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-basic-title">Order {{name}}</h4>
+  <h4 class="modal-title" id="modal-basic-title">Order {{goods.name}}</h4>
   <button type="button" class="btn-close" aria-label="Close" (click)="ngbActiveModal.dismiss()"></button>
 </div>
 <div class="modal-body">
@@ -8,7 +8,7 @@
 
       <div class="form-group">
         <label for="name">Name</label>
-        <input class="form-control" type="text" id="name" value="{{name}}" readonly>
+        <input class="form-control" type="text" id="name" value="{{goods.name}}" readonly>
       </div>
 
       <div class="form-group">
@@ -34,7 +34,7 @@
 
       <div class="form-group">
         <span class="container position-absolute start-0 summary-price">
-          <p class="text-center">Summary price: {{getSummaryPrice(price, goodsOrderingForm.value.count)}}</p>
+          <p class="text-center">Summary price: {{getSummaryPrice(goods.price, goodsOrderingForm.value.count)}}</p>
         </span>
       </div>
 

@@ -20,7 +20,7 @@
       <td>{{orderLine.order.date | date: 'longDate'}}</td>
       <td>{{orderLine.order.address}}</td>
       <span class="orders-table">
-        <button type="button" class="btn btn-primary" (click)="editOrder(orderLine.id)">edit</button>
+        <button type="button" class="btn btn-primary" (click)="editOrder(orderLine)">edit</button>
       </span>
       <span class="orders-table">
         <button type="button" class="btn btn-primary" title="delete order"

@@ -11,7 +11,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 })
 export class GoodsEditModalComponent implements OnInit {
 
-  private id?: number;
+  goods: Goods;
 
   goodsEditingForm = new FormGroup({
     name: new FormControl(),
@@ -33,14 +33,14 @@ export class GoodsEditModalComponent implements OnInit {
 
   updateGoods(): void {
     const goods = {
-      id: this.id,
+      id: this.goods.id,
       name: this.goodsEditingForm.value.name,
       price: this.goodsEditingForm.value.price
     } as Goods;
     this.goodsService.updateGoods(goods);
   }
 
-  setId(id:number): void {
-    this.id = id;
+  setGoods(goods: Goods): void {
+    this.goods = goods;
   }
 }

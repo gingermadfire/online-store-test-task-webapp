@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Edit order</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="ngbActiveModal.dismiss()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="orderLineEditingForm" (ngSubmit)="updateOrderLine()">
+    <div class="d-grid gap-2 col-6 mx-auto">
+
+      <select [(ngModel)]="orderLine.goods.name" id="select-goods" class="form-select" formControlName="goodsName"
+              aria-label="Default select example">
+        <option *ngFor="let goods of allGoods" [value]="goods.name"
+                [attr.selected]="orderLine.goods.name==goods.name ? true : null"
+        (click)="setGoodsId(goods.id)">{{goods.name}}</option>
+      </select>
+
+      <div class="form-group">
+        <label for="countInput">Count</label>
+        <input type="number" class="form-control" min="1" id="countInput" formControlName="count" [ngModel]="orderLine.count">
+      </div>
+
+      <div class="form-group">
+        <label for="clientInput">Client</label>
+        <input type="string" class="form-control" id="clientInput" formControlName="client"
+               [ngModel]="orderLine.order.client">
+      </div>
+
+      <div class="form-group">
+        <label for="addressInput">Address</label>
+        <input type="string" class="form-control" id="addressInput" formControlName="address"
+               [ngModel]="orderLine.order.address">
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <div class="form-group">
+      </div>
+      <button type="submit" class="btn btn-outline-success" (click)="ngbActiveModal.dismiss()">Save</button>
+    </div>
+  </form>
+</div>
+
