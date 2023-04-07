@@ -1,1 +1,45 @@
-<p>goods-order-modal works!</p>
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Order {{name}}</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="ngbActiveModal.dismiss()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="goodsOrderingForm" (ngSubmit)="orderGoods()">
+    <div class="d-grid gap-2 col-6 mx-auto">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" type="text" id="name" value="{{name}}" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="countInput">Count</label>
+        <input type="number" class="form-control" min="1" id="countInput" formControlName="count" placeholder="0">
+      </div>
+
+
+      <div class="form-group">
+        <label for="clientInput">Client</label>
+        <input type="string" class="form-control" id="clientInput" formControlName="client"
+               placeholder="Enter your first and last name">
+      </div>
+
+      <div class="form-group">
+        <label for="addressInput">Address</label>
+        <input type="string" class="form-control" id="addressInput" formControlName="address"
+               placeholder="Enter your address">
+      </div>
+    </div>
+
+    <div class="modal-footer">
+
+      <div class="form-group">
+        <span class="container position-absolute start-0 summary-price">
+          <p class="text-center">Summary price: {{getSummaryPrice(price, goodsOrderingForm.value.count)}}</p>
+        </span>
+      </div>
+
+      <button type="submit" class="btn btn-outline-success" (click)="ngbActiveModal.dismiss()">Order</button>
+    </div>
+  </form>
+</div>
+

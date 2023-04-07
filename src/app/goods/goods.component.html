@@ -13,6 +13,9 @@
       <th >{{goods.name}}</th>
       <th>{{goods.price}}</th>
       <span class="goods-table">
+        <button type="button" class="btn btn-primary" (click)="order(goods.id, goods.name, goods.price)">order</button>
+      </span>
+      <span class="goods-table">
         <button type="button" class="btn btn-primary" (click)="edit(goods.id)">edit</button>
       </span>
       <span class="goods-table">

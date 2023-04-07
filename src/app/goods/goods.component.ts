@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {GoodsAddingModalComponent} from "../goods-adding-modal/goods-adding-modal.component";
 import {GoodsEditModalComponent} from "../goods-edit-modal/goods-edit-modal.component";
+import {GoodsOrderModalComponent} from "../goods-order-modal/goods-order-modal.component";
 
 @Component({
   selector: 'app-goods',
@@ -48,5 +49,10 @@ export class GoodsComponent implements OnInit {
   edit(id: number) {
     const ngbModalRef = this.ngbModal.open(GoodsEditModalComponent);
     ngbModalRef.componentInstance.setId(id);
+  }
+
+  order(id: number, name: string, price: number) {
+    const ngbModalRef = this.ngbModal.open(GoodsOrderModalComponent);
+    ngbModalRef.componentInstance.setGoods(id, name, price);
   }
 }
