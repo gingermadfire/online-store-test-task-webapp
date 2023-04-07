@@ -2,21 +2,24 @@
   <table class="table text-center table border-primary position-relative order-table">
     <thead>
     <tr>
-      <th class="table-header-font">Client</th>
+      <th class="table-header-font">Goods</th>
+      <th class="table-header-font">Price</th>
+      <th class="table-header-font">Count</th>
       <th class="table-header-font">Date</th>
+      <th class="table-header-font">Address</th>
+      <th class="table-header-font">Client</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let order of orders">
-      <td >{{order.client}}</td>
-      <td>{{order.date | date: 'longDate'}}</td>
-      <span class="orders-table">
+    <tr *ngFor="let orderline of orderLines">
+      <td></td>
+     <!-- <span class="orders-table">
         <button type="button" class="btn btn-primary" (click)="editOrder(order.id)">edit</button>
       </span>
       <span class="orders-table">
         <button type="button" class="btn btn-primary" title="delete order"
                 (click)="deleteOrder(order.id)">X</button>
-      </span>
+      </span>-->
     </tr>
     </tbody>
   </table>
