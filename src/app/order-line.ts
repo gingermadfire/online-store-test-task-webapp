@@ -1,6 +1,9 @@
+import {Order} from "./order";
+import {Goods} from "./goods";
+
 export interface OrderLine {
   id: number;
-  orderId: number;
-  goodsId: number;
+  order: Order;
+  goods: Goods;
   count: number;
 }
