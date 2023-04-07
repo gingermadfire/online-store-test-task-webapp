@@ -1,0 +1,32 @@
+<div class="container d-flex justify-content-center">
+  <table class="table text-center table border-primary position-relative order-table">
+    <thead>
+    <tr>
+      <th class="table-header-font">Goods name</th>
+      <th class="table-header-font">Price</th>
+      <th class="table-header-font">Count</th>
+      <th class="table-header-font">Client</th>
+      <th class="table-header-font">Date</th>
+      <th class="table-header-font">Address</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let orderLine of orderLines">
+      <td>{{orderLine.goods.name}}</td>
+      <td>{{orderLine.goods.price}}</td>
+      <td>{{orderLine.count}}</td>
+      <td>{{orderLine.order.client}}</td>
+      <td>{{orderLine.order.date | date: 'longDate'}}</td>
+      <td>{{orderLine.order.address}}</td>
+      <span class="orders-table">
+        <button type="button" class="btn btn-primary" (click)="editOrder(orderLine.id)">edit</button>
+      </span>
+      <span class="orders-table">
+        <button type="button" class="btn btn-primary" title="delete order"
+                (click)="deleteOrder(orderLine.id)">X</button>
+      </span>
+    </tr>
+    </tbody>
+  </table>
+</div>

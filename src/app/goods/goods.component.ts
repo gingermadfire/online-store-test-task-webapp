@@ -42,11 +42,11 @@ export class GoodsComponent implements OnInit {
     this.goodsService.deleteGoods(id);
   }
 
-  open() {
+  openAddingModal() {
     this.ngbModal.open(GoodsAddingModalComponent);
   }
 
-  edit(id: number) {
+  editOrder(id: number) {
     const ngbModalRef = this.ngbModal.open(GoodsEditModalComponent);
     ngbModalRef.componentInstance.setId(id);
   }
