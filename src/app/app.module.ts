@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import {GoodsAddingModalComponent} from "./goods-adding-modal/goods-adding-modal.component";
 import { GoodsEditModalComponent } from './goods-edit-modal/goods-edit-modal.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { GoodsEditModalComponent } from './goods-edit-modal/goods-edit-modal.com
     AppComponent,
     GoodsComponent,
     GoodsAddingModalComponent,
-    GoodsEditModalComponent
+    GoodsEditModalComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

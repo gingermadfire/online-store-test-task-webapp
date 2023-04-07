@@ -12,7 +12,7 @@ export class GoodsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private goodsUrl = 'http://localhost:8080/goods';
+  private goodsUrl = 'http://localhost:8080/api/v1/goods';
 
   httpOption = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})

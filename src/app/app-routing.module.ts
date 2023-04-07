@@ -4,12 +4,14 @@ import { RouterModule, Routes } from "@angular/router";
 import { GoodsComponent } from './goods/goods.component';
 import {GoodsAddingModalComponent} from "./goods-adding-modal/goods-adding-modal.component";
 import {GoodsEditModalComponent} from "./goods-edit-modal/goods-edit-modal.component";
+import {OrdersComponent} from "./orders/orders.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/goods', pathMatch: 'full' },
   { path: 'goods', component: GoodsComponent },
   { path: 'add-goods', component: GoodsAddingModalComponent },
-  { path: 'edit-goods', component: GoodsEditModalComponent }
+  { path: 'edit-goods', component: GoodsEditModalComponent },
+  { path: 'orders', component: OrdersComponent }
 ];
 
 @NgModule({

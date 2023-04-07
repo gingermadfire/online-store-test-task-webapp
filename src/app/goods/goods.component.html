@@ -1,19 +1,19 @@
 <button type="button" class="btn btn-outline-primary position-absolute end-0 goods-adding-button"
-        (click)="open()">Add goods</button>
+        (click)="openAddingModal()">Add goods</button>
 <div class="container d-flex justify-content-center">
   <table class="table text-center table border-primary position-relative goods-table">
     <thead>
     <tr>
-      <th class="table-header-font">Name</th>
-      <th class="table-header-font">Price</th>
+      <th>Name</th>
+      <th>Price</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let goods of allGoods">
-      <th >{{goods.name}}</th>
-      <th>{{goods.price}}</th>
+      <td >{{goods.name}}</td>
+      <td>{{goods.price}}</td>
       <span class="goods-table">
-        <button type="button" class="btn btn-primary" (click)="edit(goods.id)">edit</button>
+        <button type="button" class="btn btn-primary" (click)="editOrder(goods.id)">edit</button>
       </span>
       <span class="goods-table">
         <button type="button" class="btn btn-primary" title="delete goods"

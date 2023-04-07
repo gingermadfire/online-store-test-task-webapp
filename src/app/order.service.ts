@@ -11,7 +11,7 @@ export class OrderService {
   constructor(private http: HttpClient) {
   }
 
-  private orderUrl = "localhost:8080/api/v1/order";
+  private orderUrl = "http://localhost:8080/api/v1/order";
 
   httpOption = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
