@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, tap} from "rxjs";
 import {Order} from './order';
+import {OrderRequestDto} from "./order-request-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class OrderService {
   constructor(private http: HttpClient) {
   }
 
-  private orderUrl = "localhost:8080/api/v1/order";
+  private orderUrl = 'http://localhost:8080/api/v1/order';
 
   httpOption = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -32,8 +33,8 @@ export class OrderService {
       );
   }
 
-  setOrder(order: Order) {
-    this.http.post(this.orderUrl, order, this.httpOption)
+  setOrder(orderRequestDto: OrderRequestDto) {
+    this.http.post<OrderRequestDto>(this.orderUrl, orderRequestDto, this.httpOption)
       .subscribe(data => console.log(data));
   }
 
