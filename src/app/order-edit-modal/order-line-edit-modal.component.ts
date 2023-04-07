@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {GoodsService} from "../goods.service";
@@ -11,7 +11,7 @@ import {Goods} from "../goods";
   templateUrl: './order-line-edit-modal.component.html',
   styleUrls: ['./order-line-edit-modal.component.css']
 })
-export class OrderLineEditModalComponent {
+export class OrderLineEditModalComponent implements OnInit {
 
   orderLine: OrderLine;
   allGoods: Goods[] = [];
@@ -51,7 +51,7 @@ export class OrderLineEditModalComponent {
       id: this.goodsId,
       name: this.orderLineEditingForm.value.goodsName,
       price: this.getPrice()
-    }
+    };
 
     const order = {
       id: this.orderLine.order.id,

@@ -33,8 +33,8 @@ export class OrderService {
       );
   }
 
-  setOrder(orderRequestDto: OrderLineRequestDto): Observable<OrderLineRequestDto>  {
-    return this.http.post<OrderLineRequestDto>(this.orderUrl, orderRequestDto, this.httpOption);
+  setOrder(orderRequestDto: OrderLineRequestDto) {
+    this.http.post(this.orderUrl, orderRequestDto, this.httpOption).subscribe();
   }
 
   deleteOrder(id: number) {

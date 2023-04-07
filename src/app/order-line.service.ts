@@ -32,8 +32,8 @@ export class OrderLineService {
       );
   }
 
-  setOrderLine(orderRequestDto: OrderLineRequestDto): Observable<OrderLineRequestDto> {
-    return this.http.post<OrderLineRequestDto>(this.orderLineUrl, orderRequestDto, this.httpOptions);
+  setOrderLine(orderLineRequestDto: OrderLineRequestDto) {
+    this.http.post(this.orderLineUrl, orderLineRequestDto, this.httpOptions).subscribe();
   }
 
   deleteOrderLine(id: number) {
