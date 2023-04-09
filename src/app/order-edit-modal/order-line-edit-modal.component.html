@@ -9,7 +9,7 @@
       <select [(ngModel)]="orderLine.goods.name" id="select-goods" class="form-select" formControlName="goodsName"
               aria-label="Default select example">
         <option *ngFor="let goods of allGoods" [value]="goods.name"
-                [attr.selected]="orderLine.goods.name==goods.name ? true : null"
+                [attr.selected]="orderLine.goods.name===goods.name ? true : null"
         (click)="setGoodsId(goods.id)">{{goods.name}}</option>
       </select>
 

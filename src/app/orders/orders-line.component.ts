@@ -6,10 +6,10 @@ import {OrderLineEditModalComponent} from "../order-edit-modal/order-line-edit-m
 
 @Component({
   selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  templateUrl: './orders-line.component.html',
+  styleUrls: ['./orders-line.component.css']
 })
-export class OrdersComponent implements OnInit {
+export class OrdersLineComponent implements OnInit {
 
   orderLines: OrderLine[] = [];
 

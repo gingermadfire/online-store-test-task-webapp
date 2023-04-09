@@ -12,7 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {GoodsAddingModalComponent} from "./goods-adding-modal/goods-adding-modal.component";
 import {GoodsEditModalComponent} from './goods-edit-modal/goods-edit-modal.component';
 import {GoodsOrderModalComponent} from './goods-order-modal/goods-order-modal.component';
-import {OrdersComponent} from "./orders/orders.component";
+import {OrdersLineComponent} from "./orders/orders-line.component";
 import { OrderLineEditModalComponent } from './order-edit-modal/order-line-edit-modal.component';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { OrderLineEditModalComponent } from './order-edit-modal/order-line-edit-
     GoodsComponent,
     GoodsAddingModalComponent,
     GoodsEditModalComponent,
-    OrdersComponent,
+    OrdersLineComponent,
     GoodsOrderModalComponent,
     OrderLineEditModalComponent
   ],

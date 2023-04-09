@@ -5,6 +5,8 @@ import {GoodsService} from "../goods.service";
 import {OrderLineService} from "../order-line.service";
 import {OrderLine} from "../order-line";
 import {Goods} from "../goods";
+import {OrderLineRequest} from "../order-line-request";
+import {Order} from "../order";
 
 @Component({
   selector: 'app-order-edit-modal',
@@ -47,25 +49,19 @@ export class OrderLineEditModalComponent implements OnInit {
 
   updateOrderLine(): void {
 
-    const goods = {
-      id: this.goodsId,
-      name: this.orderLineEditingForm.value.goodsName,
-      price: this.getPrice()
-    };
-
     const order = {
       id: this.orderLine.order.id,
       client: this.orderLineEditingForm.value.client,
       address: this.orderLineEditingForm.value.address
-    };
+    } as Order;
 
-    const orderLine = {
+    const orderLineRequest = {
       id: this.orderLine.id,
-      goods: goods,
+      goodsId: this.goodsId,
       order: order,
       count: this.orderLineEditingForm.value.count
-    } as OrderLine;
-    this.orderLineService.updateOrderLine(orderLine);
+    } as OrderLineRequest;
+    this.orderLineService.updateOrderLine(orderLineRequest);
   }
 
   setOrderLine(orderLine: OrderLine): void {
@@ -77,7 +73,6 @@ export class OrderLineEditModalComponent implements OnInit {
   }
 
   setGoodsId(id: number) {
-    console.log("asddfgmndfm,dfhng,f");
     if (id != null) {
       this.goodsId = id;
     }
